@@ -1,0 +1,40 @@
+# ─── Web Framework ───────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.12
+
+# ─── Data Validation ─────────────────────────────────────────
+pydantic==2.9.2
+
+# ─── Bengali NLP & Text Processing ───────────────────────────
+bnlp-toolkit==4.0.0          # Bengali NLP library
+normalizer==1.0.0             # Bengali text normalizer
+
+# ─── Machine Learning (Phase 2) ──────────────────────────────
+scikit-learn==1.5.2
+numpy==1.26.4
+pandas==2.2.3
+
+# ─── Vector Database / RAG (Phase 2) ─────────────────────────
+chromadb==0.5.11
+sentence-transformers==3.2.1
+
+# ─── Deep Learning / BanglaBERT (Phase 3) ────────────────────
+torch==2.4.1
+transformers==4.45.2
+datasets==3.0.1
+
+# ─── Database ────────────────────────────────────────────────
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.10       # PostgreSQL driver
+
+# ─── Messaging APIs (Phase 3) ────────────────────────────────
+twilio==9.3.3                 # WhatsApp
+
+# ─── Utilities ───────────────────────────────────────────────
+python-dotenv==1.0.1          # .env file support
+httpx==0.27.2                 # HTTP client (for FB API calls)
+joblib==1.4.2                 # Model save/load
+
+# ─── Development ─────────────────────────────────────────────
+pytest==8.3.3
