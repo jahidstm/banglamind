@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from backend.app.api.routes import router as api_router
-import os
 
 app = FastAPI(
     title="BanglaMind API",
@@ -10,18 +8,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS configuration
+# CORS configuration (allows the frontend to make requests to this backend)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Allows all origins for now (can restrict in production)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Mount the frontend directory to serve static files (HTML, CSS, JS)
-frontend_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "frontend")
-app.mount("/app", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
 # Include all API routes
 app.include_router(api_router, prefix="/api")
