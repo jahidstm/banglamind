@@ -25,6 +25,12 @@ DATABASE_URL = os.getenv("DATABASE_URL", "")
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
+# psycopg2-binary "pgbouncer" অপশন সাপোর্ট করে না, তাই সেটা বাদ দিতে হবে
+if "?pgbouncer=true" in DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("?pgbouncer=true", "")
+if "&pgbouncer=true" in DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("&pgbouncer=true", "")
+
 # ─── Engine তৈরি করো ─────────────────────────────────────────
 def _create_engine():
     if DATABASE_URL:
