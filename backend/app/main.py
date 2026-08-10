@@ -25,7 +25,9 @@ import os
 app.include_router(api_router, prefix="/api")
 
 # Serve the frontend directory as static files
-frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+# __file__ is backend/app/main.py -> dirname is app -> dirname is backend -> dirname is root
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+frontend_path = os.path.join(base_dir, "frontend")
 app.mount("/static", StaticFiles(directory=frontend_path), name="static")
 
 @app.get("/")
