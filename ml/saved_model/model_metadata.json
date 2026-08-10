@@ -1,0 +1,29 @@
+{
+  "accuracy": 0.7642,
+  "cv_accuracy_mean": 0.7206,
+  "cv_accuracy_std": 0.0519,
+  "intents": [
+    "complaint",
+    "contact",
+    "delivery",
+    "greeting",
+    "help",
+    "hours",
+    "location",
+    "order",
+    "price_inquiry",
+    "product_info",
+    "thanks"
+  ],
+  "train_size": 420,
+  "test_size": 106,
+  "model_type": "TF-IDF + LogisticRegression",
+  "vectorizer_params": {
+    "analyzer": "char_wb",
+    "ngram_range": [
+      2,
+      4
+    ],
+    "max_features": 15000
+  }
+}

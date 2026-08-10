@@ -10,6 +10,7 @@ class IntentInfo(BaseModel):
     tag: str
     confidence: str
     score: float
+    source: str = "rule"  # "ml" or "rule"
 
 class ChatResponse(BaseModel):
     reply: str = Field(..., description="The chatbot's reply")
