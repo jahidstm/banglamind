@@ -1,0 +1,14 @@
+{
+  "total_messages": 1,
+  "intent_counts": {
+    "price_inquiry": 1
+  },
+  "source_counts": {
+    "ml": 0,
+    "rule": 1,
+    "rag": 0
+  },
+  "daily_counts": {
+    "2026-08-10": 1
+  }
+}
