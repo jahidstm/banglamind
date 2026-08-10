@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.api.routes import router as api_router
+from backend.app.api.dashboard_routes import router as dashboard_router
 
 app = FastAPI(
     title="BanglaMind API",
@@ -23,6 +24,7 @@ import os
 
 # Include all API routes
 app.include_router(api_router, prefix="/api")
+app.include_router(dashboard_router, prefix="/api/dashboard")
 
 # Serve the frontend directory as static files
 # __file__ is backend/app/main.py -> dirname is app -> dirname is backend -> dirname is root
@@ -37,6 +39,11 @@ async def serve_landing_page():
 @app.get("/demo.html")
 async def serve_demo_page():
     return FileResponse(os.path.join(frontend_path, "demo.html"))
+
+@app.get("/dashboard.html")
+async def serve_dashboard():
+    return FileResponse(os.path.join(frontend_path, "dashboard.html"))
+
 
 if __name__ == "__main__":
     import uvicorn
