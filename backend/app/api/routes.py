@@ -8,27 +8,47 @@ router = APIRouter()
 @router.get("/health", summary="Health Check")
 async def health_check():
     """Check if the API is running correctly."""
-    return {"status": "ok", "message": "BanglaMind API is running!"}
+    return {"status": "ok", "message": "BanglaMind API is running!", "version": "2.0.0"}
 
 @router.post("/chat", response_model=ChatResponse, summary="Chat Endpoint")
 async def chat(request: ChatRequest):
     """
     Process a user message and return the chatbot's response.
+    Full pipeline: RAG → ML → Rule-based
     """
     result = engine.process_message(request.message)
+    intent = result["intent"]
 
-    # Analytics track করো (background-এ)
+    # ── Analytics (JSON file) track করো ──
     try:
-        increment_analytics(
-            intent=result["intent"]["tag"],
-            source=result["intent"]["source"],
-        )
+        increment_analytics(intent["tag"], intent["source"])
     except Exception:
-        pass  # analytics fail হলে chat বন্ধ হবে না
+        pass
+
+    # ── Database-এ message save করো (optional) ──
+    try:
+        from backend.app.database.connection import DB_AVAILABLE, SessionLocal
+        if DB_AVAILABLE and SessionLocal:
+            from backend.app.database.db_service import save_message
+            db = SessionLocal()
+            try:
+                save_message(
+                    db           = db,
+                    user_message = request.message,
+                    bot_reply    = result["reply"],
+                    intent_tag   = intent["tag"],
+                    intent_source= intent["source"],
+                    confidence   = intent["confidence"],
+                    score        = float(intent["score"]),
+                    language     = result.get("language", "unknown"),
+                )
+            finally:
+                db.close()
+    except Exception:
+        pass  # DB save fail হলে chat বন্ধ হবে না
 
     return ChatResponse(
-        reply=result["reply"],
-        intent=result["intent"],
-        language=result["language"]
+        reply    = result["reply"],
+        intent   = intent,
+        language = result.get("language", "unknown"),
     )
-
