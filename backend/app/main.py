@@ -17,8 +17,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
 # Include all API routes
 app.include_router(api_router, prefix="/api")
+
+# Serve the frontend directory as static files
+frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+app.mount("/static", StaticFiles(directory=frontend_path), name="static")
+
+@app.get("/")
+async def serve_landing_page():
+    return FileResponse(os.path.join(frontend_path, "index.html"))
+
+@app.get("/demo.html")
+async def serve_demo_page():
+    return FileResponse(os.path.join(frontend_path, "demo.html"))
 
 if __name__ == "__main__":
     import uvicorn

@@ -280,7 +280,9 @@
 </div>
 
 <script>
-  const API_URL = 'http://127.0.0.1:8000/api/chat';
+  const API_URL = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' 
+    ? 'http://127.0.0.1:8000/api/chat' 
+    : '/api/chat';
   const messagesEl = document.getElementById('chat-messages');
   const inputEl    = document.getElementById('message-input');
   const sendBtn    = document.getElementById('send-btn');
