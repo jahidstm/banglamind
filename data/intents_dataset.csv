@@ -1,0 +1,527 @@
+text,intent
+কতটুকু ভালো?,product_info
+পণ্যের variety আছে কি?,product_info
+onek dhonnobad,thanks
+ওয়েবসাইট কী?,contact
+নমস্কার,greeting
+onek kaje laglo,thanks
+প্রথমবার আসলাম,help
+পরে কথা হবে,thanks
+হতাশ হয়েছি,complaint
+অর্ডার করতে চাই,order
+ektu bolben?,help
+সর্বনিম্ন দাম কত?,price_inquiry
+koto taka rakhen?,price_inquiry
+আজকেই চাই,order
+সুপ্রভাত,greeting
+পণ্যের তালিকা দিন,product_info
+ami jani na,help
+বাড়িতে পৌঁছে দেবেন?,delivery
+কতদিনে পৌঁছাবে?,delivery
+dam ta ektu kom hobe?,price_inquiry
+ki ki offer ache?,product_info
+কটায় খোলেন?,hours
+phone number den,contact
+কোথায় খুঁজে পাবো?,location
+কিনতে চাই,order
+কোথায় পাওয়া যাবে?,location
+কত টাকা লাগবে?,price_inquiry
+আদাব,greeting
+মূল্য বলুন,price_inquiry
+আমি সন্তুষ্ট নই,complaint
+এখনই অর্ডার দিতে চাই,order
+অর্ডার করার নিয়ম কী?,order
+fix koren,complaint
+চট্টগ্রামে আছেন?,location
+hey bhai,greeting
+opening time ki?,hours
+কেউ আছো?,greeting
+এটার দাম কত?,price_inquiry
+এখন কি বন্ধ?,hours
+kokhon kholen?,hours
+ঠিক করে দিন,complaint
+ভালো থাকবেন,thanks
+help chai,complaint
+home delivery ache?,delivery
+কোন মার্কেটে?,location
+একজন মানুষের সাথে কথা বলতে চাই,contact
+কোথায় আছেন?,location
+কথা বলতে চাই,greeting
+রাতে কি খোলা?,hours
+টাকা কাটা গেছে কিন্তু অর্ডার হয়নি,complaint
+সুন্দরভাবে বুঝিয়ে দেওয়ার জন্য ধন্যবাদ,thanks
+কোনটা সেরা?,product_info
+email ki?,contact
+ki ki ache?,product_info
+thank you bhai,thanks
+same day delivery hobe?,delivery
+facebook page er naam ki?,contact
+hello bhai,greeting
+ডেলিভারি নষ্ট হলে কী হবে?,delivery
+ঠিকানা দিন,location
+ওটার দাম কত?,price_inquiry
+কত দূরে?,location
+কোনো অফার আছে?,price_inquiry
+tata,thanks
+number den,contact
+bKash-এ দেওয়া যাবে?,order
+price janate paren?,price_inquiry
+বাইরে ডেলিভারি দেন?,delivery
+ajkei pabo?,delivery
+মান খারাপ,complaint
+valo thakben,thanks
+অর্ডার নিচ্ছেন?,order
+একটু সাহায্য লাগবে,greeting
+are you open?,hours
+সারা দেশে ডেলিভারি আছে?,delivery
+কোন জিনিস পাবো?,product_info
+খোলার সময় কী?,hours
+somosya ache,help
+কী কী বিক্রি করেন?,product_info
+একটু বলবেন?,help
+discount আছে?,price_inquiry
+dam koto?,price_inquiry
+shaptahik bondo konodin?,hours
+হ্যালো আপু,greeting
+কত রেখেছেন?,price_inquiry
+ajkei chai,order
+tracking ache?,delivery
+বিশেষ ধন্যবাদ,thanks
+সোশ্যাল মিডিয়া লিংক দিন,contact
+বুক করতে চাই,order
+phone number koto?,contact
+মোট কত টাকা পড়বে?,price_inquiry
+মান কেমন?,product_info
+live agent চাই,contact
+প্রতারণা করছেন,complaint
+নতুন আমি,help
+নতুন পণ্য আছে?,product_info
+সময় দেওয়ার জন্য ধন্যবাদ,thanks
+thik ache dhonnobad,thanks
+ki ki pawa jay?,product_info
+পণ্য ঠিক নেই,complaint
+ok thanks,thanks
+নম্বর দিন,contact
+ektu thikana bolben?,location
+শুক্রবারে কি খোলা?,hours
+শুভ সন্ধ্যা,greeting
+হাই ভাই,greeting
+ডেলিভারি দেন?,delivery
+সারা দেশে কি আছে?,location
+delivery deben?,delivery
+stock e ache ki?,product_info
+পণ্য ফেরত নেবেন?,complaint
+contact number den,contact
+thik kore den,complaint
+বিকেলে কি খোলা থাকে?,hours
+delivery charge koto?,delivery
+ইমেইল দিন,contact
+ponno ferat nebo?,complaint
+কোন বিল্ডিং-এ?,location
+buy korte chai,order
+কাজে লাগলো,thanks
+আপনার কাছ থেকে জানতে চাই,help
+instagram ache?,contact
+please help,help
+কেমন আছেন,greeting
+নতুন কালেকশন আছে?,product_info
+পণ্যের বিবরণ দিন,product_info
+showroom er thikana?,location
+dhaka r baire pathaben?,delivery
+good afternoon,greeting
+কয়টায় খোলে?,hours
+রবিবারে কি বন্ধ?,hours
+koto taka?,price_inquiry
+আমার অর্ডার কোথায়?,order
+shop time jante chai,hours
+কত করে?,price_inquiry
+offer ache ki?,price_inquiry
+rate কত?,price_inquiry
+ajke ki khola ache?,hours
+apnar kach theke jante chai,help
+কয়টায় বন্ধ হয়?,hours
+বন্ধের সময় কী?,hours
+location den,location
+ami shontusto noi,complaint
+apnader sathe kibabe jogajog korte pari?,contact
+মানুষের সাথে কথা বলতে চাই,contact
+ফোন নম্বর কত?,contact
+শনিবারে কি খোলা?,hours
+ki korte hobe?,help
+হ্যালো,greeting
+ভালো আছো?,greeting
+কতক্ষণ সেবা পাওয়া যাবে?,hours
+confirm dite chai,order
+price koto?,price_inquiry
+refund chai,complaint
+আমার এলাকায় ডেলিভারি দেন?,delivery
+শুকরিয়া,thanks
+কুরিয়ারে পাঠাবেন?,delivery
+ponno vanga eseche,complaint
+কিভাবে কাজ করে?,help
+price jante chai,price_inquiry
+kothay theke shuru korbo?,help
+কোন ফ্লোরে?,location
+কাছাকাছি কোথায়?,location
+help koren,help
+shukria,thanks
+ekta nite chai,order
+আজকে কি খোলা আছে?,hours
+ডেলিভারি আছে?,delivery
+express ডেলিভারি আছে?,delivery
+কোন কোন পণ্য আছে?,product_info
+এটা কিনতে চাই,order
+ঢাকায় আছেন?,location
+অর্ডার আসেনি,complaint
+আপনাদের ঠিকানা কী?,location
+কোনটা recommend করবেন?,product_info
+কী করতে হবে?,help
+shukrobare ki khola?,hours
+যোগাযোগ করবো কিভাবে?,contact
+ভালো আছেন?,greeting
+আরেকটু ব্যাখ্যা করুন,help
+hi,greeting
+location kothay?,location
+eid এ কি খোলা?,hours
+delivery fee koto?,delivery
+same day ডেলিভারি হবে?,delivery
+whatsapp number den,contact
+express delivery ache?,delivery
+কখন খোলেন?,hours
+goodbye,thanks
+ponno te somosya ache,complaint
+help করুন,help
+ডেলিভারি চার্জ কত?,delivery
+experienced না,help
+ছবি দেখাবেন?,product_info
+সকাল ৮টায় কি পাবো?,hours
+allah hafez,thanks
+কেমন আছো,greeting
+ফেসবুক লিংক দিন,contact
+dam koto taka?,price_inquiry
+কিভাবে অর্ডার করবো?,order
+শুভেচ্ছা,greeting
+ভুল পণ্য পাঠিয়েছেন,complaint
+বুঝতে পারছি না,help
+কাল পাবো?,delivery
+ekhoni order dite chai,order
+সেরা পণ্য কোনটা?,product_info
+রাত ১২টায় কি পাবো?,hours
+ekhon ki khola?,hours
+একটা নিতে চাই,order
+সাহায্যের জন্য ধন্যবাদ,thanks
+valo thakun,thanks
+নতুন কী আসছে?,product_info
+কী কী আছে?,product_info
+jogajog korbo kibabe?,contact
+কিস্তিতে পাওয়া যাবে?,price_inquiry
+ফ্রি ডেলিভারি আছে?,delivery
+order neben?,order
+লেটেস্ট পণ্য কোনটা?,product_info
+কি খবর,greeting
+ঢাকার বাইরে পাঠাবেন?,delivery
+etar khobor den,product_info
+কোথায় যোগাযোগ করবো?,contact
+কিভাবে যোগাযোগ করবো?,contact
+pathaben?,delivery
+information chai,help
+hye,greeting
+কত টাকায় পাবো?,price_inquiry
+product list den,product_info
+ajke ki bondo?,hours
+abar asbo,thanks
+কোথায় থেকে শুরু করবো?,help
+prathambar aslam,help
+এত দেরি কেন?,complaint
+man kharap,complaint
+শুভ রাত্রি,greeting
+advice den,help
+আপনাদের অফিস কোথায়?,location
+খারাপ পণ্য পাঠিয়েছেন,complaint
+kinte chai,order
+নগদে দেওয়া যাবে?,order
+ঠিকানাটা কী?,location
+hello,greeting
+payment গেছে order আসেনি,complaint
+can you help me?,help
+bybye,thanks
+দোকান কোন রাস্তায়?,location
+ar ektu bujhiye bolun,help
+আপনাদের সাথে কিভাবে যোগাযোগ করতে পারি?,contact
+call korte pari?,contact
+courier e pathaben?,delivery
+সঠিক পথ দেখান,help
+ferat dite chai,complaint
+booking dite chai,order
+book korte chai,order
+kothay dokan?,location
+মূল্য কত?,price_inquiry
+হোম ডেলিভারি আছে?,delivery
+এটা ভালো?,product_info
+valo achen?,greeting
+দাম কত?,price_inquiry
+একদম নতুন,help
+maliker sathe kotha bolbo?,contact
+কোনটা ভালো?,product_info
+rakhchi,thanks
+ভালো থাকুন,thanks
+product er details den,product_info
+বুঝিনি,help
+কেউ অনলাইনে আছেন?,greeting
+সর্বোচ্চ দাম কত?,price_inquiry
+গুণগত মান কেমন?,product_info
+ok ধন্যবাদ,thanks
+address den,location
+latest collection ki?,product_info
+দাম বলুন,price_inquiry
+কোন এলাকায় দোকান?,location
+helpful chilen,thanks
+bujhini,help
+thikana koi?,location
+order dite chai,order
+দুটো লাগবে,order
+সকালে কখন খোলেন?,hours
+badlai deben?,complaint
+shunchen?,greeting
+কতক্ষণে পাবো?,order
+assistance দরকার,help
+ধন্যবাদ আপনাকে,thanks
+bujhte parchi na,help
+বদলে দেবেন?,complaint
+somosya hochhe,complaint
+website ki?,contact
+শুভ বিকাল,greeting
+kotay kholo?,hours
+helpline koto?,contact
+address বলুন,location
+সমস্যা হচ্ছে,complaint
+রেট কত?,price_inquiry
+কোথায় দেখতে পাবো?,product_info
+order korte chai,order
+best product kono ta?,product_info
+pakaging valo?,delivery
+পণ্যে সমস্যা আছে,complaint
+এখন কি খোলা?,hours
+দোকান কোথায় অবস্থিত?,location
+guide koren,help
+ponno nosto eseche,complaint
+support-এ কথা বলতে চাই,contact
+human er sathe kotha bolte chai,contact
+অভিযোগ জানাতে চাই,complaint
+whats the price?,price_inquiry
+পরামর্শ দিন,help
+অর্ডার দিতে চাই,order
+price কত টাকা?,price_inquiry
+price কত?,price_inquiry
+payment kivabe korbo?,order
+pore jogajog korbo,thanks
+বুকিং দিতে চাই,order
+hye apu,greeting
+jazakallah,thanks
+kharap ponno pathaisen,complaint
+address ki?,location
+ki khobor,greeting
+thikana bolen,location
+কতক্ষণ খোলা থাকে?,hours
+রিফান্ড চাই,complaint
+ডেলিভারি হয়নি,complaint
+শুভ সকাল,greeting
+ki korte pari?,help
+সাপ্তাহিক বন্ধ কোন দিন?,hours
+দ্রুত ডেলিভারি আছে?,delivery
+আস্সালামু আলাইকুম,greeting
+kibabe order korbo?,order
+online order hobe?,order
+cost koto?,price_inquiry
+eid er por khulbe kokhon?,hours
+please connect to human,contact
+কী করবো বুঝতে পারছি না,help
+ধন্যবাদ,thanks
+আল্লাহ হাফেজ,thanks
+দেরি হচ্ছে কেন?,complaint
+কটায় বন্ধ?,hours
+saradesh delivery ache?,delivery
+দাম কত হবে?,price_inquiry
+ক্যাশ দেওয়া যাবে?,order
+কত টাকায় পাওয়া যাবে?,price_inquiry
+পেমেন্ট কিভাবে করবো?,order
+ektu help korun,help
+ওয়ালাইকুম আস্সালাম,greeting
+বুঝেছি ধন্যবাদ,thanks
+koto taka lagbe?,price_inquiry
+quality kemon?,product_info
+appreciate korchi,thanks
+কত টাকা?,price_inquiry
+শিখিয়ে দিন,help
+ডেলিভারি ট্র্যাক করবো কিভাবে?,delivery
+জাজাকাল্লাহ,thanks
+bye,thanks
+একটু সাহায্য করুন,help
+কত দাম?,price_inquiry
+support number ki?,contact
+হাই,greeting
+কনফার্ম করতে চাই,order
+kothay jete hobe?,location
+order kora jabe?,order
+ekhon ki available?,product_info
+customer care number?,contact
+কী কী পাওয়া যায়?,product_info
+কী পাওয়া যাবে?,product_info
+guidance দরকার,help
+কোথায় কোথায় ডেলিভারি দেন?,delivery
+guide করুন,help
+WhatsApp নম্বর দিন,contact
+help needed,help
+helpful holo,thanks
+rate janaben?,price_inquiry
+মূল্য কত টাকা?,price_inquiry
+salam,greeting
+help lagbe,greeting
+অর্ডার করা যাবে?,order
+অনলাইনে অর্ডার দেওয়া যাবে?,order
+কয় টাকা?,price_inquiry
+hotash hoiechi,complaint
+অনেক উপকার হলো,thanks
+এটা কী?,product_info
+কতদিনে ডেলিভারি হবে?,delivery
+ki biki koren?,product_info
+কত দিনে আসবে?,delivery
+পণ্য ভাঙা এসেছে,complaint
+কাছাকাছি কোনো ল্যান্ডমার্ক আছে?,location
+cash dibo,order
+কিছুই বুঝছি না,help
+পণ্য নষ্ট এসেছে,complaint
+kon elakai?,location
+কত টাকা রাখছেন?,price_inquiry
+রাখছি,thanks
+সাশ্রয়ী মূল্যে পাওয়া যাবে?,price_inquiry
+product er photo ache?,product_info
+কোন কুরিয়ার ব্যবহার করেন?,delivery
+পণ্য সম্পর্কে জানতে চাই,product_info
+অর্ডার দিতে হলে কী করতে হবে?,order
+package safe thakbe?,delivery
+vul ponno pathaisen,complaint
+exchange korte chai,complaint
+হেল্পলাইন নম্বর কত?,contact
+কখন পাবো?,order
+কোন এলাকায়?,location
+ektu kotha bolbo?,greeting
+Google Maps-এ কিভাবে খুঁজবো?,location
+এটা কেমন?,product_info
+কাল কি খোলা থাকবে?,hours
+কি অবস্থা,greeting
+কোথায় শোরুম?,location
+kemon achen,greeting
+ধোঁকা দিয়েছেন,complaint
+ঝামেলা হচ্ছে,complaint
+ছুটির দিনে কি খোলা?,hours
+সরাসরি কথা বলতে চাই,contact
+notun ami,help
+আমার একটা লাগবে,order
+মালিকের সাথে কথা বলতে চাই,contact
+delivery track korbo kibabe?,delivery
+map share করবেন?,location
+thank you,thanks
+more details deben?,product_info
+আবার আসবো,thanks
+kothay achen?,location
+cya,thanks
+bkash e dewa jabe?,order
+এটার মূল্য কত?,price_inquiry
+thanks apu,thanks
+delivery ache?,delivery
+কেউ আছেন?,greeting
+free delivery ache?,delivery
+WhatsApp-এ যোগাযোগ করবো?,contact
+shikhiye den,help
+GPS location দিন,location
+ইমেইল আইডি কী?,contact
+কোথায় আছো?,location
+open achen?,hours
+holiday তে কি খোলা?,hours
+how much?,price_inquiry
+24 ঘণ্টা কি সেবা আছে?,hours
+ঠিক করুন,complaint
+kal pabo?,delivery
+online-এ দেখতে পাবো?,product_info
+আমি জানি না কিভাবে,help
+আরেকটু বুঝিয়ে বলুন,help
+দাম কত টাকা?,price_inquiry
+ঠিক আছে ধন্যবাদ,thanks
+কিভাবে যাবো?,location
+খোদা হাফেজ,thanks
+প্রশ্নের উত্তর দেওয়ার জন্য ধন্যবাদ,thanks
+শাখা কোথায় কোথায়?,location
+complaint করতে চাই,complaint
+কোথায় অফিস?,location
+ফোন নম্বর দিন,contact
+assalamu alaikum,greeting
+ache kono?,greeting
+facebook link den,contact
+kisto te pawa jabe?,price_inquiry
+পাঠাবেন?,delivery
+কখন অনলাইনে পাওয়া যাবে?,hours
+পরে যোগাযোগ করবো,thanks
+khoda hafez,thanks
+kotodin e pouchabe?,delivery
+kothay kothay delivery den?,delivery
+support দরকার,complaint
+কখন বন্ধ করেন?,hours
+রাজি আছি,order
+hey,greeting
+kholar somoy jante chai,hours
+কত?,price_inquiry
+nagad e dewa jabe?,order
+catalog ache?,product_info
+আমার সাথে কেউ কথা বলুন,contact
+hi apu,greeting
+complaint korte chai,complaint
+রাস্তা চিনবো কিভাবে?,location
+আজকেই পাবো?,delivery
+closing time ki?,hours
+অসংখ্য ধন্যবাদ,thanks
+office time ki?,hours
+আছেন নাকি?,greeting
+koto khon thake khola?,hours
+শুনছেন?,greeting
+দাম জানাবেন?,price_inquiry
+kokhon bondho?,hours
+exchange করতে চাই,complaint
+কোথায় যেতে হবে?,location
+dam bolen,price_inquiry
+kibabe kaj kore?,help
+koy tay bondo?,hours
+ki ache apnader?,product_info
+kibabe jogajog korbo?,contact
+koy taka?,price_inquiry
+jhamela hochhe,complaint
+ফেরত দিতে চাই,complaint
+হ্যালো ভাই,greeting
+thanks,thanks
+protarona korchen,complaint
+tথ্য দিন,help
+ডেলিভারি ফি কত?,delivery
+কী ধরনের পণ্য বিক্রি করেন?,product_info
+location কোথায়?,location
+কী কী stock আছে?,product_info
+purchase korte chai,order
+email den,contact
+minimum order koto delivery free?,delivery
+call korbo kibabe?,contact
+দোকান কোথায়?,location
+order status janbo kibabe?,order
+good evening,greeting
+available ache?,product_info
+kono ta valo?,product_info
+কত বাজেটে পাবো?,price_inquiry
+ki obostha,greeting
+apnar sathe kotha bolte chai,greeting
+অনেক ধন্যবাদ,thanks
+পণ্যের দাম কত?,price_inquiry
+ঠিকানা বলুন,location
+office kothay?,location
+আমার জন্য কোনটা ভালো হবে?,product_info
+দুটো নিতে চাই,order
+আমি কিনতে রাজি,order
+good morning,greeting
+address কী?,location
