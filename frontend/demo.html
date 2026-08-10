@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BanglaMind | Live Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/app/static/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="demo-page">
+    <div class="demo-wrapper">
+        <a href="/app/index.html" class="back-link"><i class="fas fa-arrow-left"></i> ব্যাক</a>
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="bot-avatar">🧠</div>
+                <div class="bot-info">
+                    <h2>BanglaMind Bot</h2>
+                    <p class="status">Online <span class="dot"></span></p>
+                </div>
+            </div>
+            
+            <div class="chat-box" id="chatBox">
+                <div class="message bot">
+                    <div class="msg-bubble">
+                        আসসালামু আলাইকুম! আমি বাংলা-মাইন্ড এআই (AI)। আমি আপনাকে কীভাবে সাহায্য করতে পারি? 😊
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="আপনার মেসেজ লিখুন (বাংলা বা বাংলিশ)..." autocomplete="off" onkeypress="handleKeyPress(event)">
+                <button id="sendBtn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        
+        <div class="demo-instructions">
+            <h3>কী লিখে টেস্ট করবেন?</h3>
+            <ul>
+                <li>"আপনাদের দাম কত?"</li>
+                <li>"ajke ki khola ache?"</li>
+                <li>"product e somossa"</li>
+                <li>"contact details din"</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/app/static/js/chat.js"></script>
+</body>
+</html>
