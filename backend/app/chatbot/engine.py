@@ -1,11 +1,12 @@
 """
-BanglaMind — Main Chatbot Engine (Full Pipeline)
+BanglaMind -- Main Chatbot Engine (Full Pipeline)
 ==================================================
 Priority order:
-1. RAG (FAQ match) → সবচেয়ে নির্ভুল, ব্যবসার নিজের তথ্য
-2. ML Model (high/medium confidence) → trained classifier
-3. Rule-based → keyword fallback
-4. Default → না বুঝলে সাহায্য চাও
+1. RAG (FAQ match) -> সবচেয়ে নির্ভুল, ব্যবসার নিজের তথ্য
+2. BanglaBERT (Deep Learning) -> fine-tuned BERT transformer
+3. Scikit-learn ML Model -> TF-IDF + Logistic Regression fallback
+4. Rule-based -> keyword fallback
+5. Default -> না বুঝলে সাহায্য চাও
 """
 import logging
 from backend.app.chatbot.preprocessor import BengaliPreprocessor
@@ -15,13 +16,19 @@ from backend.app.chatbot.rag_engine import rag_engine
 
 logger = logging.getLogger(__name__)
 
-# ML Classifier — optional
+# BanglaBERT Classifier -- optional
+try:
+    from ml.banglabert_classifier import banglabert_predict
+    BANGLABERT_AVAILABLE = True
+except ImportError:
+    BANGLABERT_AVAILABLE = False
+
+# Scikit-learn ML Classifier -- optional
 try:
     from ml.ml_classifier import ml_predict, get_model_info
     ML_AVAILABLE = True
 except ImportError:
     ML_AVAILABLE = False
-    logger.warning("ML module নেই। Rule-based mode চলছে।")
 
 # RAG minimum confidence
 RAG_SCORE_THRESHOLD = 0.20
@@ -30,7 +37,7 @@ RAG_SCORE_THRESHOLD = 0.20
 class ChatbotEngine:
     """
     Full-stack Chatbot Engine:
-    RAG (FAQ) → ML → Rule-based → Default
+    RAG (FAQ) -> BanglaBERT -> ML -> Rule-based -> Default
     """
     def __init__(self):
         self.preprocessor      = BengaliPreprocessor()
@@ -38,6 +45,8 @@ class ChatbotEngine:
         self.response_generator = ResponseGenerator()
 
         mode = "RAG + "
+        if BANGLABERT_AVAILABLE:
+            mode += "BanglaBERT + "
         if ML_AVAILABLE and get_model_info().get("loaded"):
             mode += "ML + Rule-based"
         else:
@@ -49,14 +58,15 @@ class ChatbotEngine:
         Full pipeline:
         1. Preprocess
         2. RAG: FAQ-এ exact/similar answer আছে?
-        3. ML: intent classify করো
-        4. Rule-based: fallback
-        5. Response generate করো
+        3. BanglaBERT: Deep learning classification
+        4. ML: Scikit-learn fallback
+        5. Rule-based: keyword fallback
+        6. Response generate
         """
         clean_text = self.preprocessor.process(message)
         lang       = self.preprocessor.detect_language(message)
 
-        # ── Step 1: RAG ───────────────────────────────────────
+        # -- Step 1: RAG ---------------------------------------
         rag_result = rag_engine.answer(clean_text)
         if rag_result and rag_result["score"] >= RAG_SCORE_THRESHOLD:
             return {
@@ -71,25 +81,36 @@ class ChatbotEngine:
                 "faq_id":   rag_result.get("faq_id"),
             }
 
-        # ── Step 2: ML ────────────────────────────────────────
-        ml_result = None
-        if ML_AVAILABLE:
-            ml_result = ml_predict(clean_text)
+        # -- Step 2: BanglaBERT (Deep Learning) ----------------
+        bert_result = None
+        if BANGLABERT_AVAILABLE:
+            bert_result = banglabert_predict(clean_text)
 
-        if ml_result and ml_result["confidence"] in ("high", "medium"):
-            intent_tag        = str(ml_result["tag"])
-            intent_confidence = ml_result["confidence"]
-            intent_score      = ml_result["score"]
-            source            = "ml"
+        if bert_result and bert_result["confidence"] in ("high", "medium"):
+            intent_tag        = str(bert_result["tag"])
+            intent_confidence = bert_result["confidence"]
+            intent_score      = bert_result["score"]
+            source            = "banglabert"
         else:
-            # ── Step 3: Rule-based ────────────────────────────
-            rule_result       = self.matcher.match(clean_text)
-            intent_tag        = rule_result.tag
-            intent_confidence = rule_result.confidence
-            intent_score      = rule_result.score
-            source            = "rule"
+            # -- Step 3: Scikit-learn ML ------------------------
+            ml_result = None
+            if ML_AVAILABLE:
+                ml_result = ml_predict(clean_text)
 
-        # ── Step 4: Response ─────────────────────────────────
+            if ml_result and ml_result["confidence"] in ("high", "medium"):
+                intent_tag        = str(ml_result["tag"])
+                intent_confidence = ml_result["confidence"]
+                intent_score      = ml_result["score"]
+                source            = "ml"
+            else:
+                # -- Step 4: Rule-based ------------------------
+                rule_result       = self.matcher.match(clean_text)
+                intent_tag        = rule_result.tag
+                intent_confidence = rule_result.confidence
+                intent_score      = rule_result.score
+                source            = "rule"
+
+        # -- Step 5: Response ---------------------------------
         reply = self.response_generator.get_reply(intent_tag)
 
         return {
@@ -106,5 +127,3 @@ class ChatbotEngine:
 
 # Global singleton
 engine = ChatbotEngine()
-
-

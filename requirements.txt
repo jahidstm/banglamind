@@ -9,20 +9,15 @@ pydantic==2.9.2
 # ─── Bengali NLP & Text Processing ───────────────────────────
 # Using pure python implementation (no external NLP dependencies needed for Phase 1)
 
-# ─── Machine Learning (Phase 2) ──────────────────────────────
-# Will install later
-# scikit-learn==1.5.2
-# numpy==1.26.4
-# pandas==2.2.3
-
-# ─── Vector Database / RAG (Phase 2) ─────────────────────────
-# chromadb==0.5.11
-# sentence-transformers==3.2.1
+# ─── Machine Learning (Phase 2+) ─────────────────────────────
+scikit-learn>=1.5.0
+numpy>=2.0
+pandas>=2.0
 
 # ─── Deep Learning / BanglaBERT (Phase 3) ────────────────────
-# torch==2.4.1
-# transformers==4.45.2
-# datasets==3.0.1
+transformers>=4.44.0
+torch>=2.0.0
+huggingface-hub>=0.24.0
 
 # ─── Database ────────────────────────────────────────────────
 sqlalchemy==2.0.35
