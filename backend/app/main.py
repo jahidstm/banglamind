@@ -11,7 +11,7 @@ load_dotenv()
 
 from backend.app.api.routes import router as api_router
 from backend.app.api.dashboard_routes import router as dashboard_router
-
+from backend.app.api.facebook_webhook import router as fb_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -49,6 +49,7 @@ import os
 # Include all API routes
 app.include_router(api_router, prefix="/api")
 app.include_router(dashboard_router, prefix="/api/dashboard")
+app.include_router(fb_router, prefix="/api/facebook")
 
 # Add health check for database
 @app.get("/api/db-health")
