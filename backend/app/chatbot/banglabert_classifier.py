@@ -25,6 +25,9 @@ _device    = None
 
 def _load():
     global _model, _tokenizer, _id2label, _device
+    if os.getenv('RENDER'):
+        logger.warning('Running on Render free tier. Skipping BanglaBERT to avoid OOM.')
+        return False
     if _model is not None:
         return True
     try:
@@ -118,3 +121,4 @@ def get_info() -> dict:
         "intents":    list(_id2label.values()) if _id2label else [],
         "device":     str(_device) if _device else "not loaded",
     }
+
