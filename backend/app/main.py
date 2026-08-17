@@ -21,7 +21,6 @@ async def lifespan(app: FastAPI):
         from backend.app.database.connection import init_db
         init_db()
     except Exception as e:
-        import logging
         logging.getLogger(__name__).warning(f"DB init skipped: {e}")
     yield
     # ── Shutdown ── (যদি কিছু cleanup করার থাকে)

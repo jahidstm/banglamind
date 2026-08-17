@@ -1,4 +1,4 @@
-"""
+﻿"""
 BanglaMind -- Facebook Messenger Webhook
 =========================================
 ফেসবুক পেজ থেকে মেসেজ গ্রহণ করে এবং AI-এর উত্তর ফেসবুকে পাঠায়।
@@ -71,7 +71,10 @@ async def process_and_reply(sender_id: str, message_text: str):
         reply_text = result["reply"]
         intent = result["intent"]
         
-        # ২. Database-এ সেভ করো (ঐচ্ছিক)
+        # ২. ফেসবুকে রিপ্লাই পাঠাও
+        await send_facebook_message(sender_id, reply_text)
+        
+        # ৩. Database-এ সেভ করো (ঐচ্ছিক)
         if DB_AVAILABLE and SessionLocal:
             from backend.app.database.db_service import save_message
             db = SessionLocal()
@@ -87,11 +90,10 @@ async def process_and_reply(sender_id: str, message_text: str):
                     language=result.get("language", "unknown"),
                     business_id="facebook_test", # আপাতত ডিফল্ট আইডি
                 )
+            except Exception as db_e:
+                logger.warning(f"DB Save error ignored: {db_e}")
             finally:
                 db.close()
-                
-        # ৩. ফেসবুকে রিপ্লাই পাঠাও
-        await send_facebook_message(sender_id, reply_text)
         
     except Exception as e:
         logger.error(f"Error processing FB message: {e}")
