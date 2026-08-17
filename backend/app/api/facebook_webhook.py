@@ -6,7 +6,7 @@ BanglaMind -- Facebook Messenger Webhook
 import os
 import httpx
 import logging
-from fastapi import APIRouter, Request, HTTPException, Query, BackgroundTasks
+from fastapi import APIRouter, Request, HTTPException, Query, BackgroundTasks, Response
 from backend.app.chatbot.engine import engine
 from backend.app.database.connection import DB_AVAILABLE, SessionLocal
 
@@ -31,7 +31,7 @@ async def verify_webhook(
     """
     if hub_mode == "subscribe" and hub_verify_token == FB_VERIFY_TOKEN:
         logger.info("✅ Facebook Webhook Verified Successfully!")
-        return int(hub_challenge)
+        return Response(content=str(hub_challenge), media_type="text/plain")
     raise HTTPException(status_code=403, detail="Verification token mismatch")
 
 
