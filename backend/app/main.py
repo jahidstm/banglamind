@@ -1,4 +1,4 @@
-import os
+﻿import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,6 +12,7 @@ load_dotenv()
 from backend.app.api.routes import router as api_router
 from backend.app.api.dashboard_routes import router as dashboard_router
 from backend.app.api.facebook_webhook import router as fb_router
+from backend.app.api.whatsapp_webhook import router as wa_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
