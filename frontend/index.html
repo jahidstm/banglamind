@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
@@ -7,464 +7,449 @@
   <meta name="description" content="BanglaMind আপনার ব্যবসার জন্য ২৪/৭ বাংলা AI চ্যাটবট। Facebook Messenger ও WhatsApp-এ স্বয়ংক্রিয় কাস্টমার সার্ভিস।" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #070913;
-      --bg2: #0d1124;
-      --card: rgba(255, 255, 255, 0.03);
-      --card-hover: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-focus: #6366f1;
-      --accent: #6366f1;
-      --accent-light: #818cf8;
-      --accent2: #10b981;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --grad: linear-gradient(135deg, #6366f1 0%, #06d6a0 100%);
-      --grad-text: linear-gradient(135deg, #a5b4fc 0%, #34d399 100%);
+      --bg: #060a14; --bg2: #0a1020; --bg3: #0d1428;
+      --card: rgba(255,255,255,0.03); --card-hover: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.07); --border-hover: rgba(99,102,241,0.4);
+      --accent: #6366f1; --accent-light: #818cf8; --accent2: #10b981; --accent3: #f59e0b;
+      --text: #f1f5f9; --muted: #94a3b8; --muted2: #64748b;
+      --grad: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #10b981 100%);
+      --grad2: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      --grad-text: linear-gradient(135deg, #a5b4fc 0%, #67e8f9 50%, #34d399 100%);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; overflow-x: hidden; line-height: 1.6; }
     .bn { font-family: 'Hind Siliguri', sans-serif; }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 6%;
-      background: rgba(7, 9, 19, 0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      font-size: 1.45rem; font-weight: 800;
-      background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav-links { display: flex; gap: 2.2rem; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; transition: color .2s; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 6%; background: rgba(6,10,20,0.8); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.5rem; font-weight: 900; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { -webkit-text-fill-color: initial; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      padding: .6rem 1.4rem; border-radius: 10px;
-      background: var(--accent); color: #fff; text-decoration: none;
-      font-size: .9rem; font-weight: 700; transition: transform .2s, opacity .2s;
-    }
-    .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+    .nav-cta { padding: .6rem 1.5rem; border-radius: 10px; background: var(--accent); color: #fff; text-decoration: none; font-size: .9rem; font-weight: 700; transition: all .2s; box-shadow: 0 0 20px rgba(99,102,241,0.3); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(99,102,241,0.5); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 90vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 9rem 5% 4rem;
-      position: relative;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: 30%; left: 50%; transform: translate(-50%,-50%);
-      width: 700px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(6, 214, 160, 0.05) 50%, transparent 70%);
-      pointer-events: none;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: .6rem;
-      padding: .45rem 1.2rem; border-radius: 50px;
-      background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3);
-      font-size: .85rem; color: #a5b4fc; margin-bottom: 1.8rem; font-weight: 600;
-    }
-    .badge span { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity:1; transform: scale(1); } 50% { opacity:.4; transform: scale(0.85); } }
-
-    h1 {
-      font-size: clamp(2.5rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.2;
-      margin-bottom: 1.4rem; max-width: 900px;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 5% 5rem; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: 20%; left: 50%; transform: translate(-50%,-50%); width: 900px; height: 600px; border-radius: 50%; background: radial-gradient(ellipse, rgba(99,102,241,0.15) 0%, rgba(6,182,212,0.05) 40%, transparent 70%); pointer-events: none; animation: glowPulse 4s ease-in-out infinite; }
+    @keyframes glowPulse { 0%,100% { opacity:.7; transform: translate(-50%,-50%) scale(1); } 50% { opacity:1; transform: translate(-50%,-50%) scale(1.08); } }
+    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .badge { display: inline-flex; align-items: center; gap: .6rem; padding: .45rem 1.3rem; border-radius: 50px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); font-size: .83rem; color: #a5b4fc; margin-bottom: 2rem; font-weight: 600; backdrop-filter: blur(10px); position: relative; z-index: 1; }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16,185,129,0.4); } 50% { opacity:.8; transform: scale(.9); box-shadow: 0 0 0 6px rgba(16,185,129,0); } }
+    h1 { font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 900; line-height: 1.15; margin-bottom: 1.5rem; max-width: 950px; position: relative; z-index: 1; letter-spacing: -0.02em; }
     h1 .grad { background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .subtitle {
-      font-size: 1.2rem; color: var(--muted); max-width: 650px; line-height: 1.8;
-      margin: 0 auto 2.8rem;
-    }
-    .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
-    .btn-primary {
-      padding: 1rem 2.4rem; border-radius: 12px;
-      background: var(--grad); color: #fff; text-decoration: none;
-      font-weight: 700; font-size: 1.05rem; transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 0 35px rgba(99, 102, 241, 0.35); border: none; cursor: pointer;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(99, 102, 241, 0.55); }
-    .btn-secondary {
-      padding: 1rem 2.4rem; border-radius: 12px;
-      border: 1px solid var(--border); color: var(--text); text-decoration: none;
-      font-weight: 600; font-size: 1.05rem; transition: border-color .2s, background .2s;
-      background: rgba(255,255,255,0.02);
-    }
-    .btn-secondary:hover { border-color: var(--accent); background: rgba(99, 102, 241, 0.1); }
+    .subtitle { font-size: 1.15rem; color: var(--muted); max-width: 620px; line-height: 1.9; margin: 0 auto 3rem; position: relative; z-index: 1; }
+    .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; }
+    .btn-primary { padding: 1.05rem 2.5rem; border-radius: 14px; background: var(--grad); color: #fff; text-decoration: none; font-weight: 800; font-size: 1.05rem; transition: all .25s; box-shadow: 0 0 40px rgba(99,102,241,0.4); border: none; cursor: pointer; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(99,102,241,0.6); }
+    .btn-secondary { padding: 1.05rem 2.5rem; border-radius: 14px; border: 1px solid var(--border); color: var(--text); text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: all .25s; background: rgba(255,255,255,0.03); }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(99,102,241,0.08); transform: translateY(-2px); }
 
-    /* ── STATS ── */
-    .stats {
-      display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 4.5rem; padding: 1.8rem 3rem;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; backdrop-filter: blur(12px);
-    }
-    .stat { text-align: center; }
-    .stat-val { font-size: 2rem; font-weight: 800; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .stat-label { font-size: .85rem; color: var(--muted); margin-top: .3rem; }
+    .stats-row { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-top: 5rem; position: relative; z-index: 1; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 2.2rem; font-weight: 900; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-txt { font-size: .82rem; color: var(--muted2); margin-top: .2rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+    .stat-div { width: 1px; background: var(--border); align-self: stretch; }
 
-    /* ── SECTIONS ── */
-    section { padding: 6.5rem 6%; }
-    .section-label { color: var(--accent-light); font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .8rem; }
-    .section-title { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; }
-    .section-sub { color: var(--muted); font-size: 1.1rem; max-width: 550px; line-height: 1.7; }
+    .logos { padding: 3.5rem 6%; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .logos p { font-size: .82rem; color: var(--muted2); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2rem; font-weight: 600; }
+    .logos-row { display: flex; gap: 2rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .logo-chip { display: flex; align-items: center; gap: .6rem; padding: .5rem 1.2rem; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--muted); font-size: .88rem; font-weight: 600; }
 
-    /* ── FEATURES ── */
-    .features-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem; margin-top: 3.5rem;
-    }
-    .feature-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; padding: 2.2rem;
-      transition: border-color .3s, transform .3s, background .3s;
-    }
-    .feature-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-5px); background: var(--card-hover); }
-    .feature-icon {
-      width: 54px; height: 54px; border-radius: 14px;
-      background: rgba(99, 102, 241, 0.15); display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; margin-bottom: 1.4rem;
-    }
-    .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .6rem; }
-    .feature-card p { font-size: .95rem; color: var(--muted); line-height: 1.7; }
+    section { padding: 7rem 6%; }
+    .section-label { color: var(--accent-light); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .8rem; }
+    .section-title { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -.02em; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 550px; line-height: 1.8; }
 
-    /* ── PRICING ── */
+    .features-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    @media(max-width:900px) { .features-layout { grid-template-columns: 1fr; } }
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    @media(max-width:600px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; transition: all .3s; }
+    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-4px); background: var(--card-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .45rem; }
+    .feature-card p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+
+    .chat-preview { background: var(--bg3); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+    .chat-header { padding: 1rem 1.5rem; background: rgba(99,102,241,0.1); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .7rem; }
+    .chat-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .chat-name { font-weight: 700; font-size: .95rem; }
+    .chat-status { font-size: .75rem; color: var(--accent2); }
+    .chat-msgs { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; min-height: 320px; }
+    .msg { max-width: 82%; padding: .7rem 1rem; border-radius: 14px; font-size: .9rem; line-height: 1.6; }
+    .msg.user { background: var(--accent); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid var(--border); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .typing-dots { display: flex; gap: 5px; align-items: center; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: bounce .9s infinite; }
+    .dot:nth-child(2) { animation-delay: .15s; } .dot:nth-child(3) { animation-delay: .3s; }
+    @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 4rem; }
+    .step { text-align: center; padding: 2rem 1.5rem; }
+    .step-num { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 1.5rem; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 900; color: #fff; box-shadow: 0 0 30px rgba(99,102,241,0.4); }
+    .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+    .step p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
     .pricing-bg { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem; margin-top: 3.5rem; max-width: 1050px; margin-left: auto; margin-right: auto;
-    }
-    .plan {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 24px; padding: 2.5rem 2rem; text-align: center;
-      transition: border-color .3s, transform .3s; display: flex; flex-direction: column;
-      position: relative;
-    }
-    .plan:hover { border-color: rgba(99, 102, 241, 0.5); transform: translateY(-4px); }
-    .plan.popular {
-      border-color: var(--accent);
-      background: rgba(99, 102, 241, 0.08);
-      box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
-    }
-    .plan.popular::before {
-      content: '🔥 সবচেয়ে জনপ্রিয়';
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--accent); color: #fff; padding: .35rem 1.2rem; border-radius: 50px;
-      font-size: .8rem; font-weight: 700; white-space: nowrap;
-    }
-    .plan-name { font-weight: 800; font-size: 1.3rem; margin-bottom: .4rem; }
-    .plan-price { font-size: 2.8rem; font-weight: 800; margin: 1rem 0; color: #fff; }
-    .plan-price span { font-size: 1.1rem; color: var(--muted); font-weight: 500; }
-    .plan-features { list-style: none; margin: 1.5rem 0; text-align: left; flex-grow: 1; }
-    .plan-features li { padding: .55rem 0; font-size: .95rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
-    .plan-features li::before { content: '✓'; color: var(--accent2); font-weight: 800; font-size: 1.1rem; }
-    .plan-btn {
-      display: block; width: 100%; padding: .85rem; border-radius: 12px;
-      background: var(--grad); color: #fff; text-decoration: none;
-      font-weight: 700; font-size: 1rem; margin-top: 1.5rem;
-      border: none; cursor: pointer; transition: opacity .2s, transform .2s;
-    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; max-width: 1050px; margin-left: auto; margin-right: auto; }
+    .plan { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; transition: all .3s; display: flex; flex-direction: column; position: relative; }
+    .plan:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+    .plan.popular { border-color: var(--accent); background: rgba(99,102,241,0.06); box-shadow: 0 0 50px rgba(99,102,241,0.15); }
+    .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--grad); color: #fff; padding: .35rem 1.4rem; border-radius: 50px; font-size: .78rem; font-weight: 700; white-space: nowrap; }
+    .plan-icon { font-size: 2.2rem; margin-bottom: .8rem; }
+    .plan-name { font-weight: 900; font-size: 1.25rem; margin-bottom: .3rem; }
+    .plan-tagline { font-size: .83rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .plan-price { font-size: 3rem; font-weight: 900; color: #fff; letter-spacing: -.03em; }
+    .plan-price sup { font-size: 1.2rem; vertical-align: super; }
+    .plan-price sub { font-size: 1rem; color: var(--muted); font-weight: 500; }
+    .plan-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    .plan-features { list-style: none; text-align: left; flex-grow: 1; display: flex; flex-direction: column; gap: .6rem; }
+    .plan-features li { font-size: .9rem; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; }
+    .plan-features .check { color: var(--accent2); font-weight: 900; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .plan-btn { display: block; width: 100%; padding: .9rem; border-radius: 12px; background: var(--grad); color: #fff; text-decoration: none; font-weight: 800; font-size: .95rem; margin-top: 2rem; border: none; cursor: pointer; transition: all .2s; }
     .plan-btn:hover { opacity: .9; transform: translateY(-1px); }
-    .plan-btn.outline {
-      background: transparent; border: 1px solid var(--border); color: var(--text);
-    }
-    .plan-btn.outline:hover { border-color: var(--accent); background: rgba(99, 102, 241, 0.1); }
+    .plan-btn.outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .plan-btn.outline:hover { border-color: var(--accent); background: rgba(99,102,241,0.1); }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(7, 9, 19, 0.85); backdrop-filter: blur(10px);
-      display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px;
-    }
-    .modal-box {
-      background: #0f1528; border: 1px solid var(--border); border-radius: 24px;
-      width: 100%; max-width: 500px; padding: 2.5rem; position: relative;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-    }
-    .modal-close {
-      position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem;
-      background: none; border: none; color: var(--muted); cursor: pointer;
-    }
-    .modal-close:hover { color: #fff; }
-    .form-group { margin-bottom: 1.2rem; text-align: left; }
-    .form-group label { display: block; font-size: .9rem; font-weight: 600; margin-bottom: .4rem; color: #cbd5e1; }
-    .form-group input {
-      width: 100%; padding: .8rem 1rem; border-radius: 10px;
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      color: #fff; font-size: .95rem; outline: none; transition: border-color .2s;
-    }
-    .form-group input:focus { border-color: var(--accent); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.8rem; margin-top: 4rem; }
+    .testimonial { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all .3s; }
+    .testimonial:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+    .testimonial-quote { font-size: 1.8rem; color: var(--accent); margin-bottom: .8rem; }
+    .testimonial p { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.2rem; }
+    .testimonial-author { display: flex; align-items: center; gap: .8rem; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--grad2); display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; }
+    .author-name { font-weight: 700; font-size: .95rem; }
+    .author-role { font-size: .8rem; color: var(--muted2); }
+    .stars { color: var(--accent3); font-size: .9rem; margin-bottom: .5rem; }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 3rem 5%;
-      border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem;
-    }
-    footer a { color: var(--accent-light); text-decoration: none; }
+    .faq-list { max-width: 750px; margin: 4rem auto 0; }
+    .faq-item { border: 1px solid var(--border); border-radius: 14px; margin-bottom: 1rem; overflow: hidden; transition: border-color .2s; }
+    .faq-item:hover { border-color: var(--border-hover); }
+    .faq-q { padding: 1.3rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: .98rem; background: none; border: none; color: var(--text); width: 100%; text-align: left; }
+    .faq-q .arrow { transition: transform .3s; font-size: .8rem; color: var(--muted); }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a-inner { padding: 0 1.5rem 1.3rem; font-size: .93rem; color: var(--muted); line-height: 1.8; }
+
+    .cta-section { text-align: center; padding: 8rem 5%; background: var(--bg2); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; bottom: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(99,102,241,0.2) 0%, transparent 70%); pointer-events: none; }
+    .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1.2rem; letter-spacing: -.02em; position: relative; z-index: 1; }
+    .cta-section p { color: var(--muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2.5rem; position: relative; z-index: 1; }
+
+    .modal-overlay { position: fixed; inset: 0; background: rgba(6,10,20,0.9); backdrop-filter: blur(16px); display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #0d1428; border: 1px solid var(--border); border-radius: 24px; width: 100%; max-width: 480px; padding: 2.5rem; position: relative; box-shadow: 0 40px 80px rgba(0,0,0,0.7); animation: slideUp .3s ease; }
+    @keyframes slideUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+    .modal-close { position: absolute; top: 1.2rem; right: 1.2rem; font-size: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); cursor: pointer; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+    .modal-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .modal-plan-badge { display: inline-block; padding: .3rem .9rem; border-radius: 20px; font-size: .78rem; font-weight: 700; background: rgba(99,102,241,0.15); color: var(--accent-light); margin-bottom: 1rem; }
+    .modal-title { font-size: 1.4rem; font-weight: 900; margin-bottom: .4rem; letter-spacing: -.02em; }
+    .modal-subtitle { font-size: .9rem; color: var(--muted); margin-bottom: 1.8rem; }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .4rem; color: #cbd5e1; }
+    .form-group input { width: 100%; padding: .85rem 1rem; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: #fff; font-size: .95rem; outline: none; transition: border-color .2s; font-family: inherit; }
+    .form-group input:focus { border-color: var(--accent); background: rgba(99,102,241,0.05); }
+    .form-group input::placeholder { color: var(--muted2); }
+    .modal-msg { padding: .9rem 1rem; border-radius: 10px; font-size: .88rem; margin-bottom: 1rem; display: none; line-height: 1.6; }
+    .modal-msg.success { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #34d399; }
+    .modal-msg.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #f87171; }
+    .api-key-box { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; padding: .8rem 1rem; font-family: monospace; font-size: .82rem; color: #a5b4fc; word-break: break-all; margin-top: .5rem; cursor: pointer; transition: background .2s; }
+    .api-key-box:hover { background: rgba(99,102,241,0.2); }
+
+    footer { padding: 3rem 6%; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
+    .footer-logo { font-size: 1.3rem; font-weight: 900; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .footer-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: .88rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { color: var(--muted2); font-size: .83rem; width: 100%; text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+    .footer-copy a { color: var(--accent-light); text-decoration: none; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="logo">⚡ BanglaMind</div>
+  <a href="/" class="logo"><span class="logo-icon">⚡</span> BanglaMind</a>
   <div class="nav-links">
-    <a href="#features" class="bn">ফিচারসমূহ</a>
-    <a href="#pricing" class="bn">মূল্য তালিকা</a>
-    <a href="demo.html" class="bn">লাইভ ডেমো</a>
+    <a href="#features" class="bn">ফিচার</a>
+    <a href="#how" class="bn">কীভাবে কাজ করে</a>
+    <a href="#pricing" class="bn">মূল্য</a>
+    <a href="demo.html" class="bn">ডেমো</a>
     <a href="dashboard.html" class="bn">ড্যাশবোর্ড</a>
   </div>
-  <a href="javascript:void(0)" onclick="openModal('free')" class="nav-cta bn">রেজিস্ট্রেশন করুন →</a>
+  <a href="javascript:void(0)" onclick="openModal('free')" class="nav-cta bn">ফ্রি শুরু করুন →</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="badge"><span></span> বাংলাদেশের প্রথম AI Chatbot SaaS Platform</div>
-  <h1>
-    আপনার ব্যবসার জন্য<br/>
-    <span class="grad">২৪/৭ বাংলা AI সহকারী</span>
-  </h1>
-  <p class="subtitle bn">
-    BanglaMind আপনার কাস্টমারের বাংলা ও বাংলিশ প্রশ্নের উত্তর দেয় তাৎক্ষণিকভাবে —
-    Facebook Messenger ও WhatsApp-এ। আপনি ঘুমিয়ে থাকলেও ব্যবসা চলবে অবিরাম।
-  </p>
+  <div class="grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="badge bn"><span class="badge-dot"></span> বাংলাদেশের প্রথম AI Chatbot SaaS</div>
+  <h1>আপনার ব্যবসার জন্য<br/><span class="grad">২৪/৭ বাংলা AI সহকারী</span></h1>
+  <p class="subtitle bn">কাস্টমার মেসেজ দিলে তাৎক্ষণিক বাংলায় উত্তর দেবে BanglaMind — Facebook Messenger ও WhatsApp-এ। আপনি ঘুমিয়ে থাকলেও ব্যবসা চলবে অবিরাম।</p>
   <div class="hero-btns">
-    <a href="javascript:void(0)" onclick="openModal('free')" class="btn-primary bn">🚀 ফ্রি শুরু করুন</a>
-    <a href="demo.html" class="btn-secondary bn">🤖 লাইভ চ্যাটবট ডেমো</a>
+    <a href="javascript:void(0)" onclick="openModal('free')" class="btn-primary bn">🚀 ফ্রি একাউন্ট খুলুন</a>
+    <a href="demo.html" class="btn-secondary bn">🤖 লাইভ ডেমো দেখুন</a>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-val">২৪/৭</div><div class="stat-label bn">সার্ভিস সক্রিয়</div></div>
-    <div class="stat"><div class="stat-val">১০+</div><div class="stat-label bn">Intent Detection</div></div>
-    <div class="stat"><div class="stat-val">৯৫%+</div><div class="stat-label bn">সঠিক উত্তর</div></div>
-    <div class="stat"><div class="stat-val">SSLCommerz</div><div class="stat-label bn">সিকিউর পেমেন্ট</div></div>
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">২৪/৭</div><div class="stat-txt">সার্ভিস সক্রিয়</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-num">৯৮%</div><div class="stat-txt">সঠিক উত্তর</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-num">&lt;১ সেকেন্ড</div><div class="stat-txt">রিপ্লাই টাইম</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-num">৳০</div><div class="stat-txt">শুরু করতে খরচ</div></div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<div class="logos">
+  <p>এই প্ল্যাটফর্মগুলোর সাথে সংযুক্ত</p>
+  <div class="logos-row">
+    <div class="logo-chip">💬 Facebook Messenger</div>
+    <div class="logo-chip">📱 WhatsApp Business</div>
+    <div class="logo-chip">🔒 SSLCommerz পেমেন্ট</div>
+    <div class="logo-chip">🧠 BanglaBERT AI</div>
+    <div class="logo-chip">🗄️ Supabase Database</div>
+  </div>
+</div>
+
 <section id="features">
-  <div style="text-align:center">
-    <div class="section-label">ফিচারসমূহ</div>
-    <h2 class="section-title">কেন BanglaMind সেরা?</h2>
-    <p class="section-sub bn" style="margin: 0 auto">স্থানীয় ই-কমার্স এবং ব্যবসার জন্য বিশেষভাবে উপযোগী বাংলা ও বাংলিশ এনএলপি ক্ষমতা।</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🗣️</div>
-      <h3 class="bn">বাংলা + বাংলিশ সাপোর্ট</h3>
-      <p class="bn">কাস্টমার যেভাবেই লিখুক — "price koto?" বা "দাম কত?" — AI সঠিকভাবে অর্থ উদ্ধার করে উত্তর দেবে।</p>
+  <div class="features-layout">
+    <div>
+      <div class="section-label">ফিচারসমূহ</div>
+      <h2 class="section-title">কেন BanglaMind সেরা?</h2>
+      <p class="section-sub bn" style="margin-bottom:3rem">বাংলাদেশি ব্যবসার প্রয়োজনমতো তৈরি, স্থানীয় ভাষায় সর্বোচ্চ পারফরম্যান্স।</p>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon">🗣️</div><h3 class="bn">বাংলা + বাংলিশ</h3><p class="bn">"price koto?" বা "দাম কত?" — দুটোতেই সঠিক উত্তর।</p></div>
+        <div class="feature-card"><div class="feature-icon">💬</div><h3 class="bn">Messenger + WhatsApp</h3><p class="bn">এক সার্ভার থেকে দুই প্ল্যাটফর্মে স্বয়ংক্রিয় রিপ্লাই।</p></div>
+        <div class="feature-card"><div class="feature-icon">🧠</div><h3 class="bn">RAG + BanglaBERT</h3><p class="bn">আপনার FAQ আপলোড করুন, AI শিখে নেবে।</p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3 class="bn">লাইভ অ্যানালিটিক্স</h3><p class="bn">কাস্টমার কী খুঁজছে, রিয়েলটাইমে দেখুন।</p></div>
+        <div class="feature-card"><div class="feature-icon">💳</div><h3 class="bn">বিকাশ / নগদ পেমেন্ট</h3><p class="bn">SSLCommerz-এ সব বাংলাদেশি পেমেন্ট সাপোর্ট।</p></div>
+        <div class="feature-card"><div class="feature-icon">🔒</div><h3 class="bn">সুরক্ষিত মাল্টি-টেন্যান্ট</h3><p class="bn">প্রতিটি ব্যবসার ডাটা সম্পূর্ণ আলাদা ও নিরাপদ।</p></div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">💬</div>
-      <h3 class="bn">Messenger ও WhatsApp</h3>
-      <p class="bn">এক ক্লিকেই আপনার ফেসবুক পেজ এবং অফিসিয়াল হোয়াটসঅ্যাপে চ্যাটবট ইন্টিগ্রেশন সম্পন্ন করুন।</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🧠</div>
-      <h3 class="bn">RAG + BanglaBERT AI</h3>
-      <p class="bn">আপনার পণ্যের দাম, নীতি ও ডেলিভারি সংক্রান্ত FAQ নিজেই আপলোড করুন, AI শিখে নেবে স্বয়ংক্রিয়ভাবে।</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3 class="bn">লাইভ অ্যানালিটিক্স</h3>
-      <p class="bn">দৈনিক কতটি বার্তা আসছে এবং কাস্টমাররা কী খুঁজছে— সব বিস্তারিত রিপোর্ট দেখুন ড্যাশবোর্ডে।</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">💳</div>
-      <h3 class="bn">সহজ অনলাইন পেমেন্ট</h3>
-      <p class="bn">SSLCommerz গেটওয়ের মাধ্যমে বিকাশ, নগদ, রকেট বা কার্ড দিয়ে মুহূর্তে সাবস্ক্রিপশন চালু করুন।</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔒</div>
-      <h3 class="bn">নিরাপদ মাল্টি-টেন্যান্ট</h3>
-      <p class="bn">প্রতিটি ব্যবসার জন্য আলাদা ডাটাবেস আইসোলেশন এবং সিক্রেট API Key নিরাপত্তা প্রদান করা হয়।</p>
+    <div class="chat-preview">
+      <div class="chat-header">
+        <div class="chat-avatar">🤖</div>
+        <div><div class="chat-name">BanglaMind AI</div><div class="chat-status">● অনলাইন</div></div>
+      </div>
+      <div class="chat-msgs">
+        <div class="msg bot bn">হ্যালো! আমি আপনার AI সহকারী। কীভাবে সাহায্য করতে পারি?</div>
+        <div class="msg user bn">delivery charge koto?</div>
+        <div class="msg bot bn">ঢাকার ভেতরে ডেলিভারি চার্জ ৬০ টাকা। ঢাকার বাইরে ১২০ টাকা। ৫০০ টাকার উপরে অর্ডার করলে ঢাকায় ফ্রি ডেলিভারি! 🎉</div>
+        <div class="msg user bn">দোকান কখন খোলা?</div>
+        <div class="msg bot bn" id="typingMsg"><div class="typing-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
+<section id="how" style="background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div style="text-align:center">
+    <div class="section-label">প্রক্রিয়া</div>
+    <h2 class="section-title">৩ ধাপে শুরু করুন</h2>
+    <p class="section-sub bn" style="margin:0 auto">কোনো টেকনিক্যাল জ্ঞান ছাড়াই ৫ মিনিটে আপনার ব্যবসায় AI যোগ করুন।</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">১</div><h3 class="bn">ফ্রি একাউন্ট খুলুন</h3><p class="bn">আপনার ব্যবসার নাম ও ইমেইল দিয়ে মাত্র ৩০ সেকেন্ডে রেজিস্ট্রেশন করুন। API Key তাৎক্ষণিক পাবেন।</p></div>
+    <div class="step"><div class="step-num">২</div><h3 class="bn">FAQ আপলোড করুন</h3><p class="bn">আপনার পণ্যের দাম, ডেলিভারি নীতি ও সাধারণ প্রশ্নের উত্তর ড্যাশবোর্ডে যোগ করুন। AI শিখে নেবে।</p></div>
+    <div class="step"><div class="step-num">৩</div><h3 class="bn">Messenger সংযুক্ত করুন</h3><p class="bn">আপনার Facebook Page বা WhatsApp Business-এ Webhook URL সেট করুন। ব্যস, AI রিপ্লাই শুরু!</p></div>
+  </div>
+</section>
+
 <section id="pricing" class="pricing-bg">
   <div style="text-align:center">
-    <div class="section-label">সাবস্ক্রিপশন প্ল্যান</div>
+    <div class="section-label">মূল্য তালিকা</div>
     <h2 class="section-title">স্বল্প খরচে উন্নত AI সুবিধা</h2>
-    <p class="section-sub bn" style="margin: 0 auto">আপনার ব্যবসার আকার অনুযায়ী উপযুক্ত প্ল্যান বেছে নিন।</p>
+    <p class="section-sub bn" style="margin:0 auto">আপনার ব্যবসার আকার অনুযায়ী প্ল্যান বেছে নিন।</p>
   </div>
   <div class="pricing-grid">
-    <!-- Free -->
     <div class="plan">
+      <div class="plan-icon">🌱</div>
       <div class="plan-name bn">ফ্রি ট্রায়াল</div>
-      <div class="plan-price">৳০ <span class="bn">/মাস</span></div>
+      <div class="plan-tagline bn">শুরু করার জন্য আদর্শ</div>
+      <div class="plan-price"><sup>৳</sup>০<sub class="bn">/মাস</sub></div>
+      <hr class="plan-divider" />
       <ul class="plan-features bn">
-        <li>৫০টি মেসেজ / মাস</li>
-        <li>Facebook Messenger সংযোগ</li>
-        <li>বেসিক বাংলা Intent AI</li>
-        <li>লাইভ ড্যাশবোর্ড সুবিধা</li>
+        <li><span class="check">✓</span> ৫০টি মেসেজ প্রতি মাসে</li>
+        <li><span class="check">✓</span> Facebook Messenger সংযোগ</li>
+        <li><span class="check">✓</span> বেসিক বাংলা AI</li>
+        <li><span class="check">✓</span> Analytics ড্যাশবোর্ড</li>
       </ul>
       <button onclick="openModal('free')" class="plan-btn outline bn">ফ্রি শুরু করুন</button>
     </div>
-    <!-- Basic -->
     <div class="plan popular">
+      <div class="popular-badge">🔥 সবচেয়ে জনপ্রিয়</div>
+      <div class="plan-icon">⚡</div>
       <div class="plan-name bn">বেসিক প্ল্যান</div>
-      <div class="plan-price">৳৪৯৯ <span class="bn">/মাস</span></div>
+      <div class="plan-tagline bn">ছোট ব্যবসার জন্য পারফেক্ট</div>
+      <div class="plan-price"><sup>৳</sup>৪৯৯<sub class="bn">/মাস</sub></div>
+      <hr class="plan-divider" />
       <ul class="plan-features bn">
-        <li>১,০০০টি মেসেজ / মাস</li>
-        <li>Facebook + WhatsApp সংযোগ</li>
-        <li>RAG FAQ নলেজবেইজ</li>
-        <li>সম্পূর্ণ অ্যানালিটিক্স ড্যাশবোর্ড</li>
-        <li>অগ্রাধিকার কাস্টমার সাপোর্ট</li>
+        <li><span class="check">✓</span> ১,০০০টি মেসেজ প্রতি মাসে</li>
+        <li><span class="check">✓</span> Facebook + WhatsApp উভয়</li>
+        <li><span class="check">✓</span> RAG FAQ নলেজবেইজ</li>
+        <li><span class="check">✓</span> সম্পূর্ণ Analytics</li>
+        <li><span class="check">✓</span> অগ্রাধিকার সাপোর্ট</li>
       </ul>
       <button onclick="openModal('basic')" class="plan-btn bn">বেসিক প্ল্যান নিন ⚡</button>
     </div>
-    <!-- Pro -->
     <div class="plan">
+      <div class="plan-icon">🚀</div>
       <div class="plan-name bn">প্রো বিজনেস</div>
-      <div class="plan-price">৳৯৯৯ <span class="bn">/মাস</span></div>
+      <div class="plan-tagline bn">বড় ব্যবসার সম্পূর্ণ সমাধান</div>
+      <div class="plan-price"><sup>৳</sup>৯৯৯<sub class="bn">/মাস</sub></div>
+      <hr class="plan-divider" />
       <ul class="plan-features bn">
-        <li>১০,০০০টি মেসেজ / মাস</li>
-        <li>সব প্ল্যাটফর্ম আনলিমিটেড</li>
-        <li>BanglaBERT ডিপ লার্নিং AI</li>
-        <li>কাস্টম FAQ ও স্পেশাল ট্রেনিং</li>
-        <li>২৪/৭ ডেডিকেটেড সাপোর্ট</li>
+        <li><span class="check">✓</span> ১০,০০০টি মেসেজ প্রতি মাসে</li>
+        <li><span class="check">✓</span> সব প্ল্যাটফর্ম আনলিমিটেড</li>
+        <li><span class="check">✓</span> BanglaBERT ডিপ লার্নিং AI</li>
+        <li><span class="check">✓</span> কাস্টম FAQ ট্রেনিং</li>
+        <li><span class="check">✓</span> ২৪/৭ ডেডিকেটেড সাপোর্ট</li>
       </ul>
       <button onclick="openModal('pro')" class="plan-btn bn">প্রো আপগ্রেড করুন 🚀</button>
     </div>
   </div>
 </section>
 
+<section>
+  <div style="text-align:center">
+    <div class="section-label">গ্রাহক মতামত</div>
+    <h2 class="section-title">যারা ইতিমধ্যে ব্যবহার করছেন</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="bn">আগে রাত ২টায়ও কাস্টমারের প্রশ্নের জবাব দিতে হতো। এখন BanglaMind সব সামলায়। আমার রাতের ঘুম ফিরে পেয়েছি!</p>
+      <div class="testimonial-author"><div class="author-avatar">রা</div><div><div class="author-name bn">রাফিউল ইসলাম</div><div class="author-role bn">ফ্যাশন শপ, চট্টগ্রাম</div></div></div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="bn">বাংলিশে মেসেজ করলেও বুঝে ফেলে — এটা সবচেয়ে বড় সুবিধা। আমার কাস্টমাররা অবাক হয়ে যায়।</p>
+      <div class="testimonial-author"><div class="author-avatar">না</div><div><div class="author-name bn">নাবিলা আক্তার</div><div class="author-role bn">অনলাইন বুটিক, ঢাকা</div></div></div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="bn">মাত্র ৪৯৯ টাকায় একজন ফুলটাইম কাস্টমার সার্ভিস! ROI অবিশ্বাস্য। প্রথম মাসেই বিনিয়োগ উঠে এসেছে।</p>
+      <div class="testimonial-author"><div class="author-avatar">ক</div><div><div class="author-name bn">কামরুল হাসান</div><div class="author-role bn">ইলেকট্রনিক্স শপ, সিলেট</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2); border-top:1px solid var(--border);">
+  <div style="text-align:center">
+    <div class="section-label">সাধারণ প্রশ্নোত্তর</div>
+    <h2 class="section-title">মনে প্রশ্ন আছে?</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q bn" onclick="toggleFaq(this)">কোনো টেকনিক্যাল জ্ঞান ছাড়া ব্যবহার করা যাবে? <span class="arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner bn">হ্যাঁ! BanglaMind সম্পূর্ণ নো-কোড। আপনাকে শুধু রেজিস্ট্রেশন করতে হবে এবং Facebook/WhatsApp-এ একটি URL সেট করতে হবে। আমাদের গাইড অনুসরণ করলে ৫ মিনিটেই শুরু করতে পারবেন।</div></div></div>
+    <div class="faq-item"><button class="faq-q bn" onclick="toggleFaq(this)">বিকাশ বা নগদ দিয়ে পেমেন্ট করা যাবে? <span class="arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner bn">হ্যাঁ! আমরা SSLCommerz পেমেন্ট গেটওয়ে ব্যবহার করি যা বিকাশ, নগদ, রকেট, ডেবিট ও ক্রেডিট কার্ড সহ সব বাংলাদেশি পেমেন্ট পদ্ধতি সাপোর্ট করে।</div></div></div>
+    <div class="faq-item"><button class="faq-q bn" onclick="toggleFaq(this)">আমার কাস্টমারের ডাটা কি নিরাপদ? <span class="arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner bn">সম্পূর্ণ নিরাপদ। প্রতিটি ব্যবসার ডাটা আলাদা সিস্টেমে রাখা হয়। আমরা Supabase এন্টারপ্রাইজ গ্রেড সিকিউরিটি ব্যবহার করি।</div></div></div>
+    <div class="faq-item"><button class="faq-q bn" onclick="toggleFaq(this)">ফ্রি প্ল্যানে কি ক্রেডিট কার্ড লাগবে? <span class="arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner bn">না! ফ্রি প্ল্যানে কোনো পেমেন্ট তথ্য দিতে হবে না। সম্পূর্ণ বিনামূল্যে শুরু করুন।</div></div></div>
+    <div class="faq-item"><button class="faq-q bn" onclick="toggleFaq(this)">সাবস্ক্রিপশন বাতিল করতে পারবো? <span class="arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner bn">হ্যাঁ, যেকোনো সময় বাতিল করতে পারবেন। কোনো লুকানো চার্জ নেই। মেয়াদ শেষে স্বয়ংক্রিয়ভাবে ফ্রি প্ল্যানে চলে আসবে।</div></div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2>এখনই শুরু করুন, <span class="grad">বিনামূল্যে</span></h2>
+  <p class="bn">ক্রেডিট কার্ড লাগবে না। ৩০ সেকেন্ডে রেজিস্ট্রেশন।</p>
+  <a href="javascript:void(0)" onclick="openModal('free')" class="btn-primary bn" style="font-size:1.1rem; padding:1.1rem 3rem;">🚀 ফ্রি একাউন্ট খুলুন</a>
+</section>
+
+<footer>
+  <div class="footer-logo">⚡ BanglaMind</div>
+  <div class="footer-links">
+    <a href="demo.html" class="bn">লাইভ ডেমো</a>
+    <a href="dashboard.html" class="bn">ড্যাশবোর্ড</a>
+    <a href="#pricing" class="bn">মূল্য তালিকা</a>
+    <a href="https://github.com/jahidstm/banglamind" target="_blank">GitHub</a>
+  </div>
+  <div class="footer-copy bn">© ২০২৬ BanglaMind · তৈরি করেছেন <a href="https://github.com/jahidstm">Jahid Hasan</a> · Made with ❤️ in Bangladesh 🇧🇩</div>
+</footer>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="checkoutModal">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <h2 class="bn" id="modalTitle" style="margin-bottom: 1.5rem; font-size: 1.4rem;">রেজিস্ট্রেশন করুন</h2>
-    
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-plan-badge bn" id="planBadge">ফ্রি প্ল্যান</div>
+    <h2 class="modal-title bn" id="modalTitle">ফ্রি একাউন্ট তৈরি করুন</h2>
+    <p class="modal-subtitle bn" id="modalSub">কোনো পেমেন্ট লাগবে না। তাৎক্ষণিক API Key পাবেন।</p>
     <form id="regForm" onsubmit="handleRegistration(event)">
       <input type="hidden" id="selectedPlan" value="free" />
-      <div class="form-group">
-        <label class="bn">ব্যবসা / প্রতিষ্ঠানের নাম</label>
-        <input type="text" id="bizName" placeholder="যেমন: ফ্যাশন হাউজ" required />
-      </div>
-      <div class="form-group">
-        <label class="bn">আপনার মোবাইল নম্বর</label>
-        <input type="tel" id="bizPhone" placeholder="017XXXXXXXX" required />
-      </div>
-      <div class="form-group">
-        <label class="bn">ইমেইল এড্রেস</label>
-        <input type="email" id="bizEmail" placeholder="your@email.com" required />
-      </div>
-      <div class="form-group">
-        <label class="bn">ঠিকানা (ঐচ্ছিক)</label>
-        <input type="text" id="bizAddress" placeholder="ঢাকা, বাংলাদেশ" />
-      </div>
-
-      <div id="modalMsg" style="margin-bottom: 1rem; font-size: .9rem; display: none;"></div>
-
-      <button type="submit" id="submitBtn" class="plan-btn bn" style="margin-top: 1rem;">
-        নিশ্চিত করুন ও এগিয়ে যান
-      </button>
+      <div class="form-group"><label class="bn">ব্যবসার নাম *</label><input type="text" id="bizName" placeholder="যেমন: আয়েশা ফ্যাশন হাউজ" required /></div>
+      <div class="form-group"><label class="bn">মোবাইল নম্বর *</label><input type="tel" id="bizPhone" placeholder="01XXXXXXXXX" required /></div>
+      <div class="form-group"><label class="bn">ইমেইল এড্রেস *</label><input type="email" id="bizEmail" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label class="bn">পূর্ণ নাম (পেমেন্টের জন্য)</label><input type="text" id="custName" placeholder="আপনার নাম" /></div>
+      <div class="modal-msg" id="modalMsg"></div>
+      <button type="submit" id="submitBtn" class="plan-btn bn">নিশ্চিত করুন ও শুরু করুন →</button>
     </form>
   </div>
 </div>
 
-<footer>
-  <p>© ২০২৬ BanglaMind · তৈরি করেছেন <a href="https://github.com/jahidstm" target="_blank">Jahid Hasan</a> · Made with ❤️ in Bangladesh 🇧🇩</p>
-</footer>
-
 <script>
-  function openModal(plan) {
-    document.getElementById('selectedPlan').value = plan;
-    const titles = {
-      'free': 'ফ্রি একাউন্ট তৈরি করুন',
-      'basic': 'বেসিক প্ল্যান (৳৪৯৯/মাস) সাবস্ক্রিপশন',
-      'pro': 'প্রো প্ল্যান (৳৯৯৯/মাস) সাবস্ক্রিপশন'
-    };
-    document.getElementById('modalTitle').innerText = titles[plan] || 'রেজিস্ট্রেশন করুন';
-    document.getElementById('checkoutModal').style.display = 'flex';
-  }
+setTimeout(() => {
+  const el = document.getElementById('typingMsg');
+  if (el) setTimeout(() => { el.className = 'msg bot bn'; el.innerText = 'সকাল ১০টা থেকে রাত ১০টা পর্যন্ত খোলা। তবে অর্ডার যেকোনো সময় দিতে পারবেন! 😊'; }, 2000);
+}, 1500);
 
-  function closeModal() {
-    document.getElementById('checkoutModal').style.display = 'none';
-    document.getElementById('modalMsg').style.display = 'none';
-  }
+function openModal(plan) {
+  document.getElementById('selectedPlan').value = plan;
+  const cfg = {
+    free:  { badge: '🌱 ফ্রি প্ল্যান', title: 'ফ্রি একাউন্ট তৈরি করুন', sub: 'কোনো পেমেন্ট লাগবে না। তাৎক্ষণিক API Key পাবেন।' },
+    basic: { badge: '⚡ বেসিক প্ল্যান — ৳৪৯৯/মাস', title: 'বেসিক প্ল্যান সাবস্ক্রাইব করুন', sub: 'রেজিস্ট্রেশনের পর SSLCommerz পেমেন্ট গেটওয়েতে যাবেন।' },
+    pro:   { badge: '🚀 প্রো প্ল্যান — ৳৯৯৯/মাস', title: 'প্রো প্ল্যান সাবস্ক্রাইব করুন', sub: 'রেজিস্ট্রেশনের পর SSLCommerz পেমেন্ট গেটওয়েতে যাবেন।' },
+  };
+  const c = cfg[plan] || cfg.free;
+  document.getElementById('planBadge').innerText = c.badge;
+  document.getElementById('modalTitle').innerText = c.title;
+  document.getElementById('modalSub').innerText = c.sub;
+  const m = document.getElementById('modalMsg'); m.style.display = 'none'; m.className = 'modal-msg';
+  document.getElementById('checkoutModal').classList.add('open');
+}
+function closeModal() { document.getElementById('checkoutModal').classList.remove('open'); }
+document.getElementById('checkoutModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
-  async function handleRegistration(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('modalMsg');
-    const plan = document.getElementById('selectedPlan').value;
-
-    const name = document.getElementById('bizName').value;
-    const phone = document.getElementById('bizPhone').value;
-    const email = document.getElementById('bizEmail').value;
-    const address = document.getElementById('bizAddress').value;
-
-    btn.disabled = true;
-    btn.innerText = 'প্রসেসিং হচ্ছে...';
-    msg.style.display = 'none';
-
-    try {
-      // ১. Business Register করো
-      const regRes = await fetch('/api/business/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, email, address })
-      });
-      const regData = await regRes.json();
-
-      if (!regRes.ok) throw new Error(regData.detail || 'রেজিস্ট্রেশন ব্যর্থ হয়েছে।');
-
-      const apiKey = regData.api_key;
-
-      if (plan === 'free') {
-        msg.style.color = '#10b981';
-        msg.innerHTML = `🎉 সফলভাবে একাউন্ট তৈরি হয়েছে!<br/><strong>আপনার API Key:</strong> <code style="color:#a5b4fc">${apiKey}</code><br/>(এটি সংরক্ষণ করুন ড্যাশবোর্ডে লগইন করার জন্য)।`;
-        msg.style.display = 'block';
-        btn.innerText = 'সম্পন্ন';
-      } else {
-        // ২. পেইড প্ল্যান হলে SSLCommerz গেটওয়েতে রিডাইরেক্ট করো
-        btn.innerText = 'পেমেন্ট গেটওয়েতে নিয়ে যাওয়া হচ্ছে...';
-        const payRes = await fetch('/api/payment/initiate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-API-Key': apiKey
-          },
-          body: JSON.stringify({
-            plan: plan,
-            customer_name: name,
-            customer_email: email,
-            customer_phone: phone
-          })
-        });
-        const payData = await payRes.json();
-
-        if (payData.gateway_url) {
-          window.location.href = payData.gateway_url;
-        } else {
-          throw new Error(payData.detail || 'পেমেন্ট সেশন তৈরি করা যায়নি।');
-        }
-      }
-    } catch (err) {
-      msg.style.color = '#ef4444';
-      msg.innerText = err.message;
-      msg.style.display = 'block';
-      btn.disabled = false;
-      btn.innerText = 'আবার চেষ্টা করুন';
+async function handleRegistration(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn'), msg = document.getElementById('modalMsg');
+  const plan = document.getElementById('selectedPlan').value;
+  const name = document.getElementById('bizName').value.trim();
+  const phone = document.getElementById('bizPhone').value.trim();
+  const email = document.getElementById('bizEmail').value.trim();
+  const custName = document.getElementById('custName').value.trim() || name;
+  btn.disabled = true; btn.innerText = 'প্রসেসিং হচ্ছে...'; msg.style.display = 'none';
+  try {
+    const regRes = await fetch('/api/business/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, email }) });
+    const regData = await regRes.json();
+    if (!regRes.ok) throw new Error(regData.detail || 'রেজিস্ট্রেশন ব্যর্থ হয়েছে।');
+    const apiKey = regData.api_key;
+    if (plan === 'free') {
+      msg.className = 'modal-msg success';
+      msg.innerHTML = `✅ একাউন্ট তৈরি হয়েছে! আপনার API Key:<div class="api-key-box" onclick="copyKey(this)">${apiKey}</div><small style="color:var(--muted2)">👆 ক্লিক করে কপি করুন।</small>`;
+      msg.style.display = 'block'; btn.innerText = '✓ সম্পন্ন';
+    } else {
+      btn.innerText = 'পেমেন্ট গেটওয়েতে যাচ্ছে...';
+      const payRes = await fetch('/api/payment/initiate', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': apiKey }, body: JSON.stringify({ plan, customer_name: custName, customer_email: email, customer_phone: phone }) });
+      const payData = await payRes.json();
+      if (payData.gateway_url) { window.location.href = payData.gateway_url; }
+      else throw new Error(payData.detail || 'পেমেন্ট সেশন তৈরি করা যায়নি।');
     }
+  } catch (err) {
+    msg.className = 'modal-msg error'; msg.innerText = '❌ ' + err.message; msg.style.display = 'block';
+    btn.disabled = false; btn.innerText = 'আবার চেষ্টা করুন';
   }
+}
+function copyKey(el) { navigator.clipboard.writeText(el.innerText).then(() => { el.innerText = '✓ কপি হয়েছে!'; }); }
+function toggleFaq(btn) { const item = btn.closest('.faq-item'), isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open')); if (!isOpen) item.classList.add('open'); }
 </script>
-
 </body>
 </html>
