@@ -1,10 +1,11 @@
-"""
+﻿"""
 BanglaMind — SQLAlchemy Database Models
 =========================================
-তিনটি টেবিল:
-- Business : প্রতিটি ক্লায়েন্ট ব্যবসার তথ্য
-- Message  : চ্যাট মেসেজের ইতিহাস
-- FAQ      : প্রতিটি ব্যবসার FAQ
+চারটি টেবিল:
+- Business    : প্রতিটি ক্লায়েন্ট ব্যবসার তথ্য
+- Message     : চ্যাট মেসেজের ইতিহাস
+- FAQ         : প্রতিটি ব্যবসার FAQ
+- Subscription: পেমেন্ট ও সাবস্ক্রিপশন রেকর্ড
 """
 import uuid
 from datetime import datetime
@@ -17,6 +18,14 @@ from sqlalchemy.orm import DeclarativeBase, relationship
 
 class Base(DeclarativeBase):
     pass
+
+
+# ─── Subscription Plans ────────────────────────────────────────────
+PLANS = {
+    "free":  {"name": "Free",  "price": 0,   "monthly_limit": 50,    "currency": "BDT"},
+    "basic": {"name": "Basic", "price": 499, "monthly_limit": 1000,  "currency": "BDT"},
+    "pro":   {"name": "Pro",   "price": 999, "monthly_limit": 10000, "currency": "BDT"},
+}
 
 
 class Business(Base):
@@ -37,16 +46,33 @@ class Business(Base):
     whatsapp      = Column(String(50),  nullable=True)
     api_key       = Column(String(64),  unique=True, nullable=False, index=True,
                            default=lambda: uuid.uuid4().hex)
+    # সাবস্ক্রিপশন
+    plan          = Column(String(20),  default="free")   # free / basic / pro
+    plan_expires  = Column(DateTime,    nullable=True)     # কখন মেয়াদ শেষ
     is_active     = Column(Boolean,     default=True)
     created_at    = Column(DateTime,    default=datetime.utcnow)
     updated_at    = Column(DateTime,    default=datetime.utcnow, onupdate=datetime.utcnow)
 
     # Relations
-    messages = relationship("Message", back_populates="business", cascade="all, delete-orphan")
-    faqs     = relationship("FAQ",     back_populates="business", cascade="all, delete-orphan")
+    messages      = relationship("Message",      back_populates="business", cascade="all, delete-orphan")
+    faqs          = relationship("FAQ",          back_populates="business", cascade="all, delete-orphan")
+    subscriptions = relationship("Subscription", back_populates="business", cascade="all, delete-orphan")
+
+    @property
+    def monthly_limit(self) -> int:
+        return PLANS.get(self.plan, PLANS["free"])["monthly_limit"]
+
+    @property
+    def plan_active(self) -> bool:
+        """পেইড প্ল্যানের মেয়াদ আছে কিনা চেক করো।"""
+        if self.plan == "free":
+            return True
+        if self.plan_expires is None:
+            return False
+        return datetime.utcnow() < self.plan_expires
 
     def __repr__(self):
-        return f"<Business name={self.name!r}>"
+        return f"<Business name={self.name!r} plan={self.plan!r}>"
 
 
 class Message(Base):
@@ -94,3 +120,30 @@ class FAQ(Base):
 
     def __repr__(self):
         return f"<FAQ question={self.question[:40]!r}>"
+
+
+class Subscription(Base):
+    """
+    প্রতিটি পেমেন্ট ট্র্যাক রাখে।
+    SSLCommerz transaction ID সহ।
+    """
+    __tablename__ = "subscriptions"
+
+    id              = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    business_id     = Column(String(36), ForeignKey("businesses.id"), nullable=False, index=True)
+    plan            = Column(String(20), nullable=False)   # basic / pro
+    amount          = Column(Float,      nullable=False)
+    currency        = Column(String(10), default="BDT")
+    tran_id         = Column(String(100), unique=True, nullable=False)  # আমাদের generated ID
+    ssl_tran_id     = Column(String(100), nullable=True)   # SSLCommerz থেকে আসা ID
+    status          = Column(String(20), default="pending")  # pending / success / failed
+    valid_from      = Column(DateTime,   nullable=True)
+    valid_until     = Column(DateTime,   nullable=True)
+    created_at      = Column(DateTime,   default=datetime.utcnow)
+    updated_at      = Column(DateTime,   default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # Relations
+    business = relationship("Business", back_populates="subscriptions")
+
+    def __repr__(self):
+        return f"<Subscription plan={self.plan!r} status={self.status!r}>"

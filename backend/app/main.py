@@ -14,6 +14,7 @@ from backend.app.api.dashboard_routes import router as dashboard_router
 from backend.app.api.facebook_webhook import router as fb_router
 from backend.app.api.whatsapp_webhook import router as wa_router
 from backend.app.api.business_api import router as business_router
+from backend.app.api.payment import router as payment_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -53,6 +54,7 @@ app.include_router(dashboard_router, prefix="/api/dashboard")
 app.include_router(fb_router, prefix="/api/facebook")
 app.include_router(wa_router, prefix="/api/whatsapp", tags=["WhatsApp"])
 app.include_router(business_router, prefix="/api/business", tags=["Business"])
+app.include_router(payment_router, prefix="/api/payment", tags=["Payment"])
 
 # Add health check for database
 @app.get("/api/db-health")
